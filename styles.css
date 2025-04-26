@@ -185,3 +185,99 @@ img.right-medium {
   max-width: 300px;
   margin: 0 0 1rem 1rem;
 }
+
+/* make 2-col/3-col & prevention grids collapse on mobile */
+.grid-2col,
+.grid-3col,
+.prevention-grid {
+  display: grid;
+  gap: 1rem;
+}
+.grid-2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+.prevention-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+  /* collapse all grids to one column */
+  .grid-2col,
+  .grid-3col,
+  .prevention-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* full-width, centered images */
+  img.right-medium {
+    float: none;
+    display: block;
+    width: 90%;
+    max-width: none;
+    margin: 0 auto 1rem;
+  }
+
+  /* tighten up padding & font sizes */
+  .content-section {
+    padding: 1rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  p,
+  li {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* nav tweaks */
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav a {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile header layout */
+  header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Mobile nav styles */
+  nav {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  nav a {
+    flex: 0 0 auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Shrink main headline */
+  h1 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+}
